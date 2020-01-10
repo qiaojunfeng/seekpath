@@ -98,7 +98,7 @@ def _tuple_to_aiida(structure_tuple, kind_info=None, kinds=None):
             DEPRECATION_DOCS_URL), DeprecationWarning)
 
     from aiida.common.constants import elements
-    from aiida.orm.data.structure import Kind, Site, StructureData
+    from aiida.orm.nodes.data.structure import Kind, Site, StructureData
     import numpy as np
     import copy
 
@@ -255,7 +255,7 @@ def get_explicit_k_path(structure,
             DEPRECATION_DOCS_URL), DeprecationWarning)
 
     import copy
-    from aiida.orm import DataFactory
+    from aiida.plugins import DataFactory
 
     struc_tuple, kind_info, kinds = _aiida_to_tuple(structure)
 
@@ -368,7 +368,7 @@ def get_path(structure,
             DEPRECATION_DOCS_URL), DeprecationWarning)
 
     import copy
-    from aiida.orm import DataFactory
+    from aiida.plugins import DataFactory
 
     struc_tuple, kind_info, kinds = _aiida_to_tuple(structure)
 
