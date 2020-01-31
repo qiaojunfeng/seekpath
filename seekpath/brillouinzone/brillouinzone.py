@@ -212,7 +212,10 @@ def get_BZ(b1, b2, b3):
             faces.append([
                 hull.points[point_idx] for point_idx in hull.simplices[group[0]]
             ])
-            faces_index.append(hull.simplices[group[0]])
+            # from numpy.int32 to int
+            faces_index.append([
+                point_idx.item() for point_idx in hull.simplices[group[0]]
+            ])
         else:
             # Get all points
             all_points_idx = sorted(
@@ -252,7 +255,10 @@ def get_BZ(b1, b2, b3):
                 hull.points[point_idx].tolist()
                 for point_idx in actual_points_idx
             ])
-            faces_index.append(actual_points_idx)
+            # from numpy.int32 to int
+            faces_index.append([
+                point_idx.item() for point_idx in actual_points_idx
+            ])
 
     ret_data['faces'] = faces
     ret_data['faces_index'] = faces_index
